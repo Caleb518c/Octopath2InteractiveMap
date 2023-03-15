@@ -54,7 +54,7 @@ var mapOptions = {
 var map = L.map('map', mapOptions);
 
 var bounds = [[0,0], [3168, 5632]];
-var image = L.imageOverlay('Media/Octopath II Map High Res.jpg', bounds).addTo(map);
+var image = L.imageOverlay('Media/Octopath II Map High Res-min.jpg', bounds).addTo(map);
 map.fitBounds(bounds);
 
   

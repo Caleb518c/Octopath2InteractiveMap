@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Octopath Traveler 2 Interactive Map</title>
+    <link rel="stylesheet" href="Styles/styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+    integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+    crossorigin=""></script>
+</head>
+<body>
+
+   <div class="container">
+        <div class="mobileTopBar">
+            <img src="Media/icons8-menu-500.png" alt="" height="40vh" width="40vh" onclick="showMenu()">
+            <h1>Octopath Traveler II Interactive Map</h1>
+        </div>
+        <ul class="sideNav" id="sideNav">
+            <h1>Octopath Traveler II Interactive Map</h1>
+            <li onclick="addAndRemoveParagraph()" id="about">About</li>
+            
+            <div class="checkBoxes">
+                <div class="cityImg">
+                    <input type="checkbox" id="cityCheckbox" onclick="toggleCities()">
+                    <img class="cityPic" src="Media/Icons/city pls look good.png" alt="">
+                    <p>Cities</p>
+                </div>
+                <div class="cityImg">
+                    <input type="checkbox" id="townCheckbox" onclick="toggleTowns()">
+                    <img class="cityPic" src="Media/Icons/town.png" alt="">
+                    <p>Towns</p>
+                </div>
+                <div>
+                    <input type="checkbox" id="routeCheckbox" onclick="toggleRoutes()">
+                    <img src="Media/Icons/zone.png" alt="">
+                    <p>Routes</p>
+                </div>
+                <div>
+                    <input type="checkbox" id="caveCheckbox" onclick="toggleCaves()">
+                    <img src="Media/Icons/cave.png" alt="">
+                    <p>Caves</p>
+                </div>
+                <div>
+                    <input type="checkbox" id="mansionCheckbox" onclick="toggleMansions()">
+                    <img src="Media/Icons/mansion.png" alt="">
+                    <p>Mansions</p>
+                </div>
+                <div>
+                    <input type="checkbox" id="shrineCheckbox" onclick="toggleShrines()">
+                    <img src="Media/Icons/shrine.png" alt="">
+                    <p>Shrines</p>
+                </div>
+                <div>
+                    <input type="checkbox" id="ruinCheckbox" onclick="toggleRuins()">
+                    <img src="Media/Icons/ruins.png" alt="">
+                    <p>Ruins</p>
+                </div>
+                <div>
+                    <input type="checkbox" id="forestCheckbox" onclick="toggleForests()">
+                    <img src="Media/Icons/forest.png" alt="">
+                    <p>Forests</p>
+                </div>
+            </div>
+        </ul>
+        <div id ="map"></div>
+   </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

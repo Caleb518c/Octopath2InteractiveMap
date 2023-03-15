@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+}
+
+
+
+@media (max-width: 800px){
+
+    #map{
+        height: 100vh;
+        width: 100%;
+    }
+
+    .mobileTopBar{
+        display: flex;
+        align-items: center;
+        background-color: rgb(57, 57, 57);
+        color: white;
+    }
+    .mobileTopBar h1{
+        margin-bottom: 2%;
+        margin-top: 2%;
+    }
+    .mobileTopBar img{
+        margin: 4%;
+        cursor: pointer;
+    }
+
+    .container{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .sideNav{
+        display: none;
+    }
+    
+    .sideNavDisplay{
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        text-decoration: none ;
+        background-color: rgb(53, 53, 53);
+        height: 100vh;
+        width: 100%;
+    }
+
+    
+    
+    .sideNav h1{
+        margin-top: 5%;
+        margin-left: 10%;
+        color: rgb(255, 255, 255);
+        font-size: 180%; 
+        font-weight: 600;
+    }
+    
+    .sideNav li{
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-top: 1.5%;
+        margin-bottom: 1.5%;
+        padding: 3%;
+        color: rgb(255, 255, 255);
+        font-size: 170%;
+        transition: .4s;
+    }
+    
+    .sideNav li:hover{
+        color: rgb(255, 255, 255);
+        font-size: 200%;
+        background-color: rgb(72, 72, 72);
+        border-radius: 5%;
+    }
+    
+    .sideNav p{
+        color: white;
+        font-size: 100%;
+        margin-left: 15%;
+        margin-right: 8%;
+        margin-bottom: 5%;
+        margin-top: 3%;
+    }
+    
+    .checkBoxes{
+        display: flex;
+        flex-direction: column;
+        margin-top: 0%; 
+        border-radius: 3%;   
+        margin-right: 10%;
+        margin-left: 10%;
+        max-height: 7%;
+    }
+    
+    .checkBoxes div{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 10%;
+        padding-top: 5%;
+        padding-bottom: 5%;
+        background-color: rgb(71, 71, 71);
+    }
+    
+    .checkBoxes div p{
+        margin-left: 5%;
+    }
+    
+    .checkBoxes div img{
+        max-height: 50%;
+        max-width: 50%;
+        margin-left: 5%;
+    } 
+
+    .cityImg{
+        max-height: 50%;
+        min-height: 50%;
+    }
+
+    .cityPic{
+        max-height: 120%;
+        min-height: 120%;
+    }
+
+    .sideNav h1{
+        display: none;
+    }
+}
+
+@media (min-width: 801px){
+
+    #map{
+        height: 100vh;
+        width: 85%;
+    }
+
+    .mobileTopBar{
+        display: none;
+    }
+
+    .container{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .sideNav{
+        list-style: none;
+        text-decoration: none ;
+        background-color: rgb(53, 53, 53);
+        height: 100vh;
+        width: 15%;
+    }
+    .sideNavNoDisplay{
+        display: none;
+    }
+    
+    .sideNav h1{
+        margin: 5%;
+        padding: 5%;
+        color: rgb(255, 255, 255);
+        font-size: 180%; 
+        font-weight: 600;
+    }
+    
+    .sideNav li{
+        margin: 10%;
+        padding: 5%;
+        color: rgb(255, 255, 255);
+        font-size: 170%;
+        transition: .4s;
+    }
+    
+    .sideNav li:hover{
+        color: rgb(255, 255, 255);
+        font-size: 200%;
+        background-color: rgb(72, 72, 72);
+        border-radius: 5%;
+    }
+    
+    .sideNav p{
+        color: white;
+        font-size: 100%;
+        margin-left: 15%;
+        margin-right: 8%;
+    }
+    
+    .checkBoxes{
+        display: flex;
+        flex-direction: column;
+        margin-top: 10%;
+        background-color: rgb(71, 71, 71); 
+        border-radius: 3%;   
+        margin-right: 10%;
+        margin-left: 10%;
+    }
+    
+    .checkBoxes div{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 10%;
+        padding-top: 5%;
+        padding-bottom: 5%;
+    }
+    
+    .checkBoxes div p{
+        margin-left: 5%;
+    }
+    
+    .checkBoxes div img{
+        max-height: 15%;
+        max-width: 15%;
+        margin-left: 5%;
+    }
+    
+    
+    
+    
+}
+

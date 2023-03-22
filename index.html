@@ -12,56 +12,58 @@
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
     integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
     crossorigin=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 </head>
 <body>
 
+    <div class="mobileTopBar">
+        <img src="Media/icons8-menu-500.png" id="menuIcon" alt="Menu icon" height="40vh" width="40vh">
+        <h1>Octopath Traveler II Interactive Map</h1>
+    </div>
+
    <div class="container">
-        <div class="mobileTopBar">
-            <img src="Media/icons8-menu-500.png" alt="" height="40vh" width="40vh" onclick="showMenu()">
-            <h1>Octopath Traveler II Interactive Map</h1>
-        </div>
         <ul class="sideNav" id="sideNav">
-            <h1>Octopath Traveler II Interactive Map</h1>
-            <li onclick="addAndRemoveParagraph()" id="about">About</li>
+            <h1 id="about">About</h1>
+            <p id="aboutText">About text goes here</p>
             
             <div class="checkBoxes">
                 <div class="cityImg">
-                    <input type="checkbox" id="cityCheckbox" onclick="toggleCities()">
+                    <input type="checkbox" id="cityCheckbox">
                     <img class="cityPic" src="Media/Icons/city pls look good.png" alt="">
                     <p>Cities</p>
                 </div>
                 <div class="cityImg">
-                    <input type="checkbox" id="townCheckbox" onclick="toggleTowns()">
+                    <input type="checkbox" id="townCheckbox">
                     <img class="cityPic" src="Media/Icons/town.png" alt="">
                     <p>Towns</p>
                 </div>
                 <div>
-                    <input type="checkbox" id="routeCheckbox" onclick="toggleRoutes()">
+                    <input type="checkbox" id="routeCheckbox">
                     <img src="Media/Icons/zone.png" alt="">
                     <p>Routes</p>
                 </div>
                 <div>
-                    <input type="checkbox" id="caveCheckbox" onclick="toggleCaves()">
+                    <input type="checkbox" id="caveCheckbox">
                     <img src="Media/Icons/cave.png" alt="">
                     <p>Caves</p>
                 </div>
                 <div>
-                    <input type="checkbox" id="mansionCheckbox" onclick="toggleMansions()">
+                    <input type="checkbox" id="mansionCheckbox">
                     <img src="Media/Icons/mansion.png" alt="">
                     <p>Mansions</p>
                 </div>
                 <div>
-                    <input type="checkbox" id="shrineCheckbox" onclick="toggleShrines()">
+                    <input type="checkbox" id="shrineCheckbox">
                     <img src="Media/Icons/shrine.png" alt="">
                     <p>Shrines</p>
                 </div>
                 <div>
-                    <input type="checkbox" id="ruinCheckbox" onclick="toggleRuins()">
+                    <input type="checkbox" id="ruinCheckbox">
                     <img src="Media/Icons/ruins.png" alt="">
                     <p>Ruins</p>
                 </div>
                 <div>
-                    <input type="checkbox" id="forestCheckbox" onclick="toggleForests()">
+                    <input type="checkbox" id="forestCheckbox">
                     <img src="Media/Icons/forest.png" alt="">
                     <p>Forests</p>
                 </div>

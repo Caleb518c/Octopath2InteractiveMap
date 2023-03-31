@@ -7,68 +7,100 @@
     document.getElementById("shrineCheckbox").checked = true;
     document.getElementById("ruinCheckbox").checked = true;
     document.getElementById("forestCheckbox").checked = true;
+
+
+    //Hides all expandable text on load
+    document.querySelector("#aboutText").style.display = "none";
+    document.querySelector("#notesText").style.display = "none";
+
+
+    //Toggles about section text
+    document.getElementById("about").addEventListener("click", function(){
+        if (document.getElementById("aboutText").style.display == "flex")
+            document.getElementById("aboutText").style.display = "none";
+        else
+            document.getElementById("aboutText").style.display = "flex";
+    })
+
+     //Toggles map notes text
+     document.getElementById("notes").addEventListener("click", function(){
+        if (document.getElementById("notesText").style.display == "flex")
+            document.getElementById("notesText").style.display = "none";
+        else
+            document.getElementById("notesText").style.display = "flex";
+    })
+
     
 
-    //Hides all expandable paragraphs on load.
-    document.querySelector("#aboutText").style.display = "none";
+
+    
 
 
-    //Toggles about section paragraph.
-    var aboutHeading = document.getElementById("about");
-    var aboutParagraph = document.getElementById("aboutText");
+    //Creates the map object in leaflet, then sets the image and bound for it
+    var bounds = [[0,0], [3168, 5632]];
 
-    aboutHeading.addEventListener("click", function(){
-        if (aboutParagraph.style.display == "flex"){
-            aboutParagraph.style.display = "none";
+    var mapOptions = {
+        crs: L.CRS.Simple, 
+        minZoom: -1.75,
+        maxZoom: 1,
+        maxBounds: bounds, 
+        //Makes the map slingshot back onto screen
+        maxBoundsViscosity: .3
+    }
+    var map = L.map('map', mapOptions);
+    
+    var image = L.imageOverlay('Media/Octopath II Map High Res-min(1)(2).jpg', bounds).addTo(map);
+    map.fitBounds(bounds);
+    
+    //Removes leaflet attribution at the bottom right of the screen
+    document.getElementsByClassName('leaflet-control-attribution')[0].style.display = 'none';
+
+
+
+    document.querySelector("#menuIcon").addEventListener("click", function(){
+        if (document.querySelector("#sideNav").style.width == "0%"){
+
+            if (window.innerWidth > 1000){
+                (document.querySelector("#map")).style.width = "85%";
+                (document.querySelector("#sideNav")).style.width = "15%";
+            }
+
+            else { 
+                (document.querySelector("#map")).style.width = "0%";
+                (document.querySelector("#map")).style.height = "0%";
+                (document.querySelector("#sideNav")).style.width = "100%";
+                (document.querySelector("#sideNav")).style.height = "200vh";
+            }
+    
+            
         }
         else{
-            aboutParagraph.style.display = "flex";
+
+            if (window.innerWidth > 1000){
+            document.querySelector("#sideNav").style.width = "0%";
+            document.querySelector("#map").style.width = "100%";
+            }
+
+            else { 
+                (document.querySelector("#map")).style.width = "100%";
+                (document.querySelector("#sideNav")).style.width = "0%";
+                (document.querySelector("#map")).style.height = "100vh";
+                (document.querySelector("#sideNav")).style.height = "0vh";
+            }
         }
     })
 
 
-
-
-    //Creates the map object in leaflet, then sets the image and bound for it.
-    var mapOptions = {
-        crs: L.CRS.Simple, 
-        minZoom: -1.75,
-        maxZoom: 1
-    }
-    var map = L.map('map', mapOptions);
-    var bounds = [[0,0], [3168, 5632]];
-    var image = L.imageOverlay('Media/Octopath II Map High Res-min(1)(2).jpg', bounds).addTo(map);
-    map.fitBounds(bounds);
-    
-    
-
-
-
-
-
-var menuFlag = true;
-document.querySelector("#menuIcon").addEventListener("click", function(){
-    if (menuFlag){
-        (document.querySelector("#sideNav")).style.display = "flex";
-        menuFlag = false;
-        console.log(1);
-    }
-    else{
-        document.querySelector("#sideNav").style.display = "none";
-        menuFlag = true;
-        console.log(2);
-    }
-})
+    window.onresize = function(){
+        
+    };
 
 
 
 
 
 
-
-
-
-/*-------Icons------*/
+//-------Icons------
 {
 const iconScale = 113;
 
@@ -106,14 +138,13 @@ var forestIcon = L.icon({
 });
 }
 
-/*------Hineouma Region-------*/ 
+//------Hineouma Region-------
 {
 var ku = L.marker([600, 590], {icon: cityIcon});
 ku.bindPopup("<b>Hinoeuma</b><br>City of Ku.");
 
 var sai = L.marker([855, 1166], {icon: townIcon});
 sai.bindPopup("");
-
 sai.on('mouseover', function(e){
     this.sai = sai;
     this.sai.bindPopup("<b>Hinoeuma</b><br>Town of Sai.");
@@ -154,30 +185,161 @@ var ryu = L.marker([1200, 1470], {icon: townIcon});
 var northernRyuSands = L.marker([1330, 1518], {icon: routeIcon});
 }
 
-/*------Western Forest Region-------*/
+//------Leaflands-------
+
+var routeOnBorder = L.marker([1240, 550], {icon: routeIcon});
+var southForest = L.marker([1330, 525], {icon: forestIcon});
+var routeEastofForest = L.marker([1350, 630], {icon: routeIcon});
+var forestCity = L.marker([1485, 650], {icon: cityIcon});
+var southForestMansion = L.marker([1640, 545], {icon: mansionIcon});
+var northForestMansion = L.marker([1867, 617], {icon: mansionIcon});
+var northForst = L.marker([1505, 500], {icon: forestIcon});
+var forestNorthTown = L.marker([1780, 590], {icon: townIcon});
+var forestRouteToMansion = L.marker([1645, 620], {icon: routeIcon});
+var routeEastOfForestCity = L.marker([1490, 825], {icon: routeIcon});
+
+//Northern Wellgrove Trail
 {
-    var routeOnBorder = L.marker([1240, 550], {icon: routeIcon});
-    var southForest = L.marker([1330, 525], {icon: forestIcon});
-    var routeEastofForest = L.marker([1350, 630], {icon: routeIcon});
-    var forestCity = L.marker([1485, 650], {icon: cityIcon});
-    var southForestMansion = L.marker([1640, 545], {icon: mansionIcon});
-    var northForestMansion = L.marker([1867, 617], {icon: mansionIcon});
-    var northForst = L.marker([1505, 500], {icon: forestIcon});
-    var forestNorthTown = L.marker([1780, 590], {icon: townIcon});
-    var forestRouteToMansion = L.marker([1645, 620], {icon: routeIcon});
-    var routeEastOfForestCity = L.marker([1490, 825], {icon: routeIcon});
-    var routeNorthEastOfForestCity = L.marker([1665, 880], {icon: routeIcon});
-    var forestShrine = L.marker([1750, 840], {icon: shrineIcon});
-    var southForestCave = L.marker([1585, 1160], {icon: caveIcon});
-    var routeNorthOfForestCave = L.marker([1700, 1160], {icon: routeIcon});
-    var routeNorthOfForestCave2 = L.marker([1820, 1230], {icon: routeIcon});
-    //-----------Change this to a house icon once I get one
-    var forestNorthEastHouse =  L.marker([1820, 1080], {icon: townIcon});
-    var routeNorthOfForestCave3 = L.marker([1980, 1145], {icon: routeIcon});
-    var routeNorthOfForestCave4 = L.marker([2060, 1145], {icon: routeIcon});
-    var veryNorthForest = L.marker([1980, 1020], {icon: forestIcon});
-    var veryNorthForestButWest = L.marker([1960, 1270], {icon: forestIcon});
+var northernWellgroveTrail = L.marker([1665, 880], {icon: routeIcon});
+northernWellgroveTrail.bindPopup("");
+northernWellgroveTrail.on('mouseover', function(e){
+    this.northernWellgroveTrail = northernWellgroveTrail;
+    this.northernWellgroveTrail.bindPopup("<b>Northern Wellgrove Trail</b><br>Danger Level: 18");
+    this.northernWellgroveTrail.openPopup();
+})
+northernWellgroveTrail.on('click', function(e){
+    northernWellgroveTrail.bindPopup("<b>Northern Wellgrove Trail</b><br>Danger Level: 18<br><br>This is were the more detailed text will go.");
+    northernWellgroveTrail.openPopup();
+})
 }
+
+//Alter of the Lady of Grace
+{
+var ladyOfGrace = L.marker([1750, 840], {icon: shrineIcon});
+ladyOfGrace.bindPopup("");
+ladyOfGrace.on('mouseover', function(e){
+    this.ladyOfGrace = ladyOfGrace;
+    this.ladyOfGrace.bindPopup("<b>Alter of the Lady of Grace</b>");
+    this.ladyOfGrace.openPopup();
+})
+ladyOfGrace.on('click', function(e){
+    ladyOfGrace.bindPopup("<b>Alter of the Lady of Grace</b><br><br>This is were the more detailed text will go.");
+    ladyOfGrace.openPopup();
+})
+}
+
+//I don't know what the fuck this cave is called I haven't even found it yet
+var southForestCave = L.marker([1585, 1160], {icon: caveIcon});
+
+//Southern Cropdale Trail
+{
+var southernCropdaleTrail = L.marker([1700, 1160], {icon: routeIcon});
+southernCropdaleTrail.bindPopup("");
+southernCropdaleTrail.on('mouseover', function(e){
+    this.southernCropdaleTrail = southernCropdaleTrail;
+    this.southernCropdaleTrail.bindPopup("<b>Southern Cropdale Trail</b><br>Danger Level: 11");
+    this.southernCropdaleTrail.openPopup();
+})
+southernCropdaleTrail.on('click', function(e){
+    southernCropdaleTrail.bindPopup("<b>Southern Cropdale Trail</b><br>Danger Level: 11<br><br>This is were the more detailed text will go.");
+    southernCropdaleTrail.openPopup();
+})
+}
+
+//Eastern Cropdale Trail
+{
+var easternCropdaleTrail = L.marker([1820, 1230], {icon: routeIcon});
+easternCropdaleTrail.bindPopup("");
+easternCropdaleTrail.on('mouseover', function(e){
+    this.easternCropdaleTrail = easternCropdaleTrail;
+    this.easternCropdaleTrail.bindPopup("<b>Eastern Cropdale Trail</b><br>Danger Level: 11");
+    this.easternCropdaleTrail.openPopup();
+})
+easternCropdaleTrail.on('click', function(e){
+    easternCropdaleTrail.bindPopup("<b>Eastern Cropdale Trail</b><br>Danger Level: 11<br><br>This is were the more detailed text will go.");
+    easternCropdaleTrail.openPopup();
+})
+}
+
+//Cropdale
+{
+    var cropdale =  L.marker([1820, 1080], {icon: townIcon});
+    cropdale.bindPopup("");
+    cropdale.on('mouseover', function(e){
+        this.cropdale = cropdale;
+        this.cropdale.bindPopup("<b>Cropdale</b>");
+        this.cropdale.openPopup();
+    })
+    cropdale.on('click', function(e){
+        cropdale.bindPopup("<b>Cropdale</b><br><br>This is were the more detailed text will go.");
+        cropdale.openPopup();
+    })
+}
+
+//Forest Path
+{
+var forestPath = L.marker([1980, 1145], {icon: routeIcon});
+forestPath.bindPopup("");
+forestPath.on('mouseover', function(e){
+    this.forestPath = forestPath;
+    this.forestPath.bindPopup("<b>Forest Path</b><br>Danger Level: 1");
+    this.forestPath.openPopup();
+})
+forestPath.on('click', function(e){
+    forestPath.bindPopup("<b>Forest Path</b><br>Danger Level: 1<br><br>This is were the more detailed text will go.");
+    forestPath.openPopup();
+})
+}
+
+//Festival Grounds
+{
+var festivalGrounds = L.marker([2060, 1145], {icon: routeIcon});
+festivalGrounds.bindPopup("");
+festivalGrounds.on('mouseover', function(e){
+    this.festivalGrounds = festivalGrounds;
+    this.festivalGrounds.bindPopup("<b>Festival Grounds</b>");
+    this.festivalGrounds.openPopup();
+})
+festivalGrounds.on('click', function(e){
+    festivalGrounds.bindPopup("<b>Festival Grounds</b><br><br>This is were the more detailed text will go.");
+    festivalGrounds.openPopup();
+})
+}
+
+//Veil of Trees
+{
+var veilOfTrees = L.marker([1980, 1020], {icon: forestIcon});
+veilOfTrees.bindPopup("");
+veilOfTrees.on('mouseover', function(e){
+    this.veilOfTrees = veilOfTrees;
+    this.veilOfTrees.bindPopup("<b>Veil of Trees</b><br>Danger Level: 5");
+    this.veilOfTrees.openPopup();
+})
+veilOfTrees.on('click', function(e){
+    veilOfTrees.bindPopup("<b>Veil of Trees</b><br>Danger Level: 5<br><br>This is were the more detailed text will go.");
+    veilOfTrees.openPopup();
+})
+}
+    
+//Animal Trail 
+{
+var animalTrail = L.marker([1960, 1270], {icon: forestIcon});
+animalTrail.bindPopup("");
+animalTrail.on('mouseover', function(e){
+    this.animalTrail = animalTrail;
+    this.animalTrail.bindPopup("<b>Animal Trail</b><br>Danger Level: 16");
+    this.animalTrail.openPopup();
+})
+animalTrail.on('click', function(e){
+    animalTrail.bindPopup("<b>Animal Trail</b><br>Danger Level: 16<br><br>This is were the more detailed text will go.");
+    animalTrail.openPopup();
+})
+}
+    
+
+
+
+
 
 
 //Adds all layers to map
@@ -185,15 +347,15 @@ var northernRyuSands = L.marker([1330, 1518], {icon: routeIcon});
     var cities = L.layerGroup([ku, forestCity]);
     cities.addTo(map);
     
-    var towns = L.layerGroup([sai, forestNorthTown, forestNorthEastHouse, ryu]);
+    var towns = L.layerGroup([sai, forestNorthTown, cropdale, ryu]);
     towns.addTo(map);
     
     var routes = L.layerGroup([routeEastofForest, routeFarWestofSai, 
         routeNorthOfDesertShrine, routeNorthWestofSai, routeOnBorder,
         routeSouthEastOfKu, routeSouthOfKu, routeSouthofSai, 
         routeWestofSai, forestRouteToMansion, routeEastOfForestCity,
-        routeNorthEastOfForestCity, routeNorthOfForestCave, routeNorthOfForestCave2,
-        routeNorthOfForestCave3, routeNorthOfForestCave4, northernRyuSands]);
+        northernWellgroveTrail, southernCropdaleTrail, easternCropdaleTrail,
+        forestPath, festivalGrounds, northernRyuSands]);
     routes.addTo(map);
     
     var caves = L.layerGroup([caveEastOfSai, caveNorthOfKu, caveNorthOfSai,
@@ -204,16 +366,26 @@ var northernRyuSands = L.marker([1330, 1518], {icon: routeIcon});
         southForestMansion]);
     mansions.addTo(map);
     
-    var shrines = L.layerGroup([desertShrine, forestShrine]);
+    var shrines = L.layerGroup([desertShrine, ladyOfGrace]);
     shrines.addTo(map);
     
     var ruins = L.layerGroup([ruinsEastOfKu]);
     ruins.addTo(map);
     
-    var forests = L.layerGroup([southForest, northForst, veryNorthForest, 
-        veryNorthForestButWest]);
+    var forests = L.layerGroup([southForest, northForst, veilOfTrees, 
+        animalTrail]);
     forests.addTo(map); 
 }
+
+
+
+
+
+
+
+
+
+
 
 //Toggles layers on the map when the checkboxes are clicked.
 {

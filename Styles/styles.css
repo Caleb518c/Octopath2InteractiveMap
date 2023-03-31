@@ -8,7 +8,7 @@
 
 
 
-@media (max-width: 800px){
+@media (max-width: 1000px){
 
     #map{
         display: flex;
@@ -48,9 +48,13 @@
         background-color: rgb(53, 53, 53);
         height: 200vh;
         width: 100%;
+        transition: 2s;
     }
-
     
+    
+
+
+
     
     .sideNav h1{
         margin-top: 5%;
@@ -59,19 +63,7 @@
         font-size: 140%; 
         font-weight: 600;
     }
-    
-    .sideNav li{
-        margin-left: 5%;
-        margin-right: 5%;
-        margin-top: 1.5%;
-        margin-bottom: 1.5%;
-        padding: 3%;
-        color: rgb(255, 255, 255);
-        font-size: 170%;
-        transition: .4s;
-    }
-    
-    .sideNav li:hover{
+    .sideNav h1:hover{
         color: rgb(255, 255, 255);
         font-size: 200%;
         background-color: rgb(72, 72, 72);
@@ -118,16 +110,16 @@
         margin-left: 5%;
     } 
 
-    .sideNav{
-        display: none;
-    }
+    
 }
 
-@media (min-width: 801px){
+@media (min-width: 1001px){
 
     #map{
         height: 100vh;
-        width: 85%;
+        width: 88%;
+        height: 92vh;
+        transition: .7s;
     }
 
     .mobileTopBar{
@@ -135,14 +127,19 @@
         align-items: center;
         background-color: rgb(57, 57, 57);
         color: white;
+        min-height: 8vh;
+        max-height: 8vh;
     }
     .mobileTopBar h1{
         margin-bottom: 2%;
         margin-top: 2%;
+        font-size: 150%;
     }
     .mobileTopBar img{
         margin: 1.7%;
         cursor: pointer;
+        width: 2%;
+        height: 2%;
     }
 
     .container{
@@ -153,11 +150,11 @@
     .sideNav{
         display: flex;
         flex-direction: column;
-        list-style: none;
         text-decoration: none ;
         background-color: rgb(53, 53, 53);
-        height: 100vh;
-        width: 15%;
+        height: 92vh;
+        width: 12%;
+        transition: .7s;
     }
     
     .sideNav h1{
@@ -165,15 +162,15 @@
         margin-bottom: 0%;
         padding: 5%;
         color: rgb(255, 255, 255);
-        font-size: 170%;
+        font-size: 145%;
         transition: .4s;
         user-select: none;
         font-weight: 600;
     }
     
-    .sideNav li:hover{
+    .sideNav h1:hover{
         color: rgb(255, 255, 255);
-        font-size: 200%;
+        font-size: 170%;
         background-color: rgb(72, 72, 72);
         border-radius: 5%;
     }
@@ -185,10 +182,6 @@
         margin-right: 8%;
     }
 
-    #aboutText:hover{
-        opacity: .5;
-        text-decoration: line-through;
-    }
     
     .checkBoxes{
         display: flex;
@@ -216,8 +209,7 @@
     }
     
     .checkBoxes div img{
-        max-height: 50%;
-        max-width: 50%;
+        height: 45%;
         margin-left: 5%;
     }
 }

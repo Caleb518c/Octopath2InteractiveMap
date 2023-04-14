@@ -195,19 +195,11 @@ var northernWellgroveTrail = L.marker([1665, 880], {icon: routeIcon})
     .bindPopup("<b>Northern Wellgrove Trail</b><br>Danger Level: 18<br><br>This is were the more detailed text will go.");
 }
 
-//Alter of the Lady of Grace
+//Altar of the Lady of Grace
 {
-var ladyOfGrace = L.marker([1750, 840], {icon: shrineIcon});
-ladyOfGrace.bindPopup("");
-ladyOfGrace.on('mouseover', function(e){
-    this.ladyOfGrace = ladyOfGrace;
-    this.ladyOfGrace.bindPopup("<b>Alter of the Lady of Grace</b>");
-    this.ladyOfGrace.openPopup();
-})
-ladyOfGrace.on('click', function(e){
-    ladyOfGrace.bindPopup("<b>Alter of the Lady of Grace</b><br><br>This is were the more detailed text will go.");
-    ladyOfGrace.openPopup();
-})
+var ladyOfGrace = L.marker([1750, 840], {icon: shrineIcon})
+    .bindTooltip("<b>Altar of the Lady of Grace</b>")
+    .bindPopup("<b>Altar of the Lady of Grace</b><br><br>This is were the more detailed text will go.");
 }
 
 //I don't know what the fuck this cave is called I haven't even found it yet
@@ -275,8 +267,84 @@ var tombsOfWardenbeasts = L.marker([350, 3100], {icon: ruinsIcon})
     .bindTooltip("<b>Tombs of the Wardenbeasts</b>")
     .bindPopup("<b>Tombs of the Wardenbeasts</b><br><br>This is were the more detailed text will go.");
 }
-    
 
+{
+var beastingVillage = L.marker([405, 2965], {icon: villageIcon})
+    .bindTooltip("<b>Beasting village</b>")
+    .bindPopup("<b>Beasting village</b><br><br>This is were the more detailed text will go.");
+}
+
+{
+var northBeasting = L.marker([461, 3014], {icon: routeIcon})
+    .bindTooltip("<b>North Beasting Traverse</b><br>Danger Level: 11")
+    .bindPopup("<b>North Beasting Traverse</b><br>Danger Level: 11<br><br>This is were the more detailed text will go.");
+}
+
+{
+var beastingBay = L.marker([570, 2991], {icon: routeIcon})
+    .bindTooltip("<b>Beasting Bay: Anchorage</b><br>Danger Level: 11")
+    .bindPopup("<b>Beasting Bay: Anchorage</b><br>Danger Level: 11<br><br>This is were the more detailed text will go.");
+}
+
+{
+var cavernOfWaves = L.marker([636, 3034], {icon: caveIcon})
+    .bindTooltip("<b>Cavern of Waves</b><br>Danger Level: 48")
+    .bindPopup("<b>Cavern of Waves</b><br>Danger Level: 48<br><br>This is were the more detailed text will go.");
+}
+
+{
+var westernTropu = L.marker([546, 3155], {icon: routeIcon})
+    .bindTooltip("<b>Western Tropu'hopu Traverse</b><br>Danger Level: 18")
+    .bindPopup("<b>Western Tropu'hopu Traverse</b><br>Danger Level: 18<br><br>This is were the more detailed text will go.");
+}
+
+{
+var hunterGuild = L.marker([590, 3165], {icon: emblemIcon})
+    .bindTooltip("<b>Hunter Guild</b>")
+    .bindPopup("<b>Hunter Guild</b><br><br>This is were the more detailed text will go.");
+}
+
+{
+var southernNameless = L.marker([631, 3203], {icon: routeIcon})
+    .bindTooltip("<b>Southern Nameless Village Traverse</b><br>Danger Level: 45")
+    .bindPopup("<b>Southern Nameless Village Traverse</b><br>Danger Level: 45<br><br>This is were the more detailed text will go.");
+}
+
+{
+var huntressAltar = L.marker([479, 3220], {icon: shrineIcon})
+    .bindTooltip("<b>Altar of the Huntress</b>")
+    .bindPopup("<b>Altar of the Huntress</b><br><br>This is were the more detailed text will go.");
+}
+
+{
+var tropuHopu = L.marker([580, 3339], {icon: townIcon})
+    .bindTooltip("<b>Tropu'hopu</b>")
+    .bindPopup("<b>Tropu'hopu</b><br><br>This is were the more detailed text will go.");
+}
+
+{
+var namelessVillage = L.marker([766, 3176], {icon: villageIcon})
+    .bindTooltip("<b>Nameless Village</b>")
+    .bindPopup("<b>Nameless Village</b><br><br>This is were the more detailed text will go.");
+}
+
+{
+var sinkingRuins  = L.marker([689, 3155], {icon: ruinsIcon})
+    .bindTooltip("<b>Sinking Ruins</b><br>Danger Level: 46")
+    .bindPopup("<b>Sinking Ruins</b><br>Danger Level: 46<br><br>This is were the more detailed text will go.");
+}
+
+{
+var wanderingWood = L.marker([840, 3206], {icon: caveIcon})
+    .bindTooltip("<b>Wandering Wood</b><br>Danger Level: 45")
+    .bindPopup("<b>Wandering Wood</b><br>Danger Level: 45<br><br>This is were the more detailed text will go.");
+}
+
+{
+var summitOfStrife = L.marker([326, 2908], {icon: forestIcon})
+    .bindTooltip("<b>Summit of Strife</b><br>Danger Level: 45")
+    .bindPopup("<b>Summit of Strife</b><br>Danger Level: 45<br><br>This is were the more detailed text will go.");
+}
 
 
 
@@ -287,10 +355,10 @@ var tombsOfWardenbeasts = L.marker([350, 3100], {icon: ruinsIcon})
     var cities = L.layerGroup([ku, forestCity]);
     cities.addTo(map);
     
-    var towns = L.layerGroup([sai, forestNorthTown, ryu]);
+    var towns = L.layerGroup([sai, forestNorthTown, ryu, tropuHopu]);
     towns.addTo(map);
 
-    var villages = L.layerGroup([cropdale]);
+    var villages = L.layerGroup([cropdale, beastingVillage, namelessVillage]);
     villages.addTo(map);
     
     var routes = L.layerGroup([routeEastofForest, routeFarWestofSai, 
@@ -298,27 +366,30 @@ var tombsOfWardenbeasts = L.marker([350, 3100], {icon: ruinsIcon})
         routeSouthEastOfKu, routeSouthOfKu, routeSouthofSai, 
         routeWestofSai, forestRouteToMansion, routeEastOfForestCity,
         northernWellgroveTrail, southernCropdaleTrail, easternCropdaleTrail,
-        forestPath, festivalGrounds, northernRyuSands]);
+        forestPath, festivalGrounds, northernRyuSands,
+        pathToWardenbeasts, northBeasting, beastingBay, westernTropu, southernNameless]);
     routes.addTo(map);
     
     var caves = L.layerGroup([caveEastOfSai, caveNorthOfKu, caveNorthOfSai,
-        southForestCave]);
+        southForestCave, cavernOfWaves, wanderingWood]);
     caves.addTo(map);
     
     var mansions = L.layerGroup([mansionNorthOfKu, mansionNorthOfShrine, northForestMansion, 
         southForestMansion]);
     mansions.addTo(map);
     
-    var shrines = L.layerGroup([desertShrine, ladyOfGrace,
-        tombsOfWardenbeasts]);
+    var shrines = L.layerGroup([desertShrine, ladyOfGrace, huntressAltar]);
     shrines.addTo(map);
     
-    var ruins = L.layerGroup([ruinsEastOfKu]);
+    var ruins = L.layerGroup([ruinsEastOfKu, tombsOfWardenbeasts, sinkingRuins]);
     ruins.addTo(map);
     
     var forests = L.layerGroup([southForest, northForst, veilOfTrees, animalTrail,
-        pathToWardenbeasts]);
+        summitOfStrife]);
     forests.addTo(map); 
+
+    var guilds = L.layerGroup([hunterGuild]);
+    guilds.addTo(map); 
 }
 
 // added layercontrol to replace sidenav choices
@@ -333,6 +404,7 @@ nodes = {
     "<img src='Media/Icons/shrine.png' style='max-width:25px' /> <b>Shrines</b><hr>": shrines,
     "<img src='Media/Icons/ruins.png' style='max-width:25px' /> <b>Ruins</b><hr>": ruins,
     "<img src='Media/Icons/forest.png' style='max-width:25px' /> <b>Forests</b><hr>": forests,
+    "<img src='Media/Icons/emblem.png' style='max-width:25px' /> <b>Guilds</b><hr>": guilds,
 }
 var layerControl = L.control.layers(base, nodes, {position: 'topleft'}).addTo(map);
 

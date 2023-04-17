@@ -141,6 +141,22 @@ var catacombIcon = L.icon({
     iconUrl: 'Media/Icons/catacomb.png', 
     iconSize: [iconScale/4, iconScale/4]
 });
+var anchorageIcon = L.icon({
+    iconUrl: 'Media/Icons/anchorage.png', 
+    iconSize: [iconScale/3, iconScale/3]
+});
+var cathedralIcon = L.icon({
+    iconUrl: 'Media/Icons/cathedral.png', 
+    iconSize: [iconScale/2, iconScale/2]
+});
+var shipIcon = L.icon({
+    iconUrl: 'Media/Icons/ship.png', 
+    iconSize: [iconScale/3, iconScale/3]
+});
+var mountainIcon = L.icon({
+    iconUrl: 'Media/Icons/mountain.png', 
+    iconSize: [iconScale/4, iconScale/4]
+});
 }
 
 //------Hineouma Region-------
@@ -303,7 +319,7 @@ var routeEastOfForestCity = L.marker([1490, 825], {icon: routeIcon});
 
     {
         let tooltip = region + "<b>Beasting Bay: Anchorage</b><br>Danger Level: 11"
-        var beastingBay = L.marker([570, 2991], {icon: routeIcon})
+        var beastingBay = L.marker([570, 2991], {icon: anchorageIcon})
             .bindTooltip(tooltip)
             .bindPopup(tooltip + "<br><br>This is where the more detailed text will go.");
     }
@@ -515,7 +531,7 @@ var routeEastOfForestCity = L.marker([1490, 825], {icon: routeIcon});
 
     {
         let tooltip = region + "<b>New Delsta Harbor: Anchorage</b><br>Danger Level: 11"
-        var delstaHarbor = L.marker([1750, 3403], {icon: routeIcon})
+        var delstaHarbor = L.marker([1750, 3403], {icon: anchorageIcon})
             .bindTooltip(tooltip)
             .bindPopup(tooltip + "<br><br>This is where the more detailed text will go.");
     }
@@ -556,6 +572,42 @@ var routeEastOfForestCity = L.marker([1490, 825], {icon: routeIcon});
     }
 }
 
+// Crestlands
+{
+    let region = "Crestlands<br>"
+    {
+        let tooltip = region + "<b>Flamechurch: Cathedral</b>"
+        var cathedral = L.marker([1900, 4120], {icon: cathedralIcon})
+            .bindTooltip(tooltip)
+            .bindPopup(tooltip + "<br><br>This is where the more detailed text will go.");
+    }
+
+}
+
+// Winterlands
+{
+    let region = "Winterlands<br>"
+    {
+        let tooltip = region + "<b>Sacred Peak Altahe</b><br>Danger Level: 37"
+        var sacredPeak = L.marker([2465, 4587], {icon: mountainIcon})
+            .bindTooltip(tooltip)
+            .bindPopup(tooltip + "<br><br>This is where the more detailed text will go.");
+    }
+
+}
+
+// The Sundering Sea
+{
+    let region = "The Sundering Sea<br>"
+    {
+        let tooltip = region + "<b>Shipwreck of the Empress</b><br>Danger Level: 48"
+        var shipWreck = L.marker([1932, 2362], {icon: shipIcon})
+            .bindTooltip(tooltip)
+            .bindPopup(tooltip + "<br><br>This is where the more detailed text will go.");
+    }
+
+}
+
 
 
 
@@ -577,8 +629,8 @@ var routeEastOfForestCity = L.marker([1490, 825], {icon: routeIcon});
         routeWestofSai, forestRouteToMansion, routeEastOfForestCity,
         northernWellgroveTrail, southernCropdaleTrail, easternCropdaleTrail,
         forestPath, festivalGrounds, northernRyuSands,
-        pathToWardenbeasts, northBeasting, beastingBay, westernTropu, southernNameless,
-        eastDelsta, westernClockbank, southernClockbank, delstaHarbor,
+        pathToWardenbeasts, northBeasting, westernTropu, southernNameless,
+        eastDelsta, westernClockbank, southernClockbank,
         delstaFlats, pathLiphia]);
     routes.addTo(map);
     
@@ -605,6 +657,18 @@ var routeEastOfForestCity = L.marker([1490, 825], {icon: routeIcon});
 
     var catacombs = L.layerGroup([undergroundWaterway, abandonedWaterway]);
     catacombs.addTo(map); 
+
+    var cathedrals = L.layerGroup([cathedral]);
+    cathedrals.addTo(map); 
+
+    var mountains = L.layerGroup([sacredPeak]);
+    mountains.addTo(map); 
+
+    var anchorage = L.layerGroup([delstaHarbor, beastingBay]);
+    anchorage.addTo(map); 
+
+    var ships = L.layerGroup([shipWreck]);
+    ships.addTo(map); 
 }
 
 // added layercontrol to replace sidenav choices
@@ -621,6 +685,10 @@ nodes = {
     "<img src='Media/Icons/forest.png' style='max-width:13px' /> <b>Forests</b><hr>": forests,
     "<img src='Media/Icons/emblem.png' style='max-width:13px' /> <b>Guilds</b><hr>": guilds,
     "<img src='Media/Icons/catacomb.png' style='max-width:13px' /> <b>Catacombs</b><hr>": catacombs,
+    "<img src='Media/Icons/cathedral.png' style='max-width:13px' /> <b>Cathedrals</b><hr>": cathedrals,
+    "<img src='Media/Icons/mountain.png' style='max-width:13px' /> <b>Mountains</b><hr>": mountains,
+    "<img src='Media/Icons/anchorage.png' style='max-width:13px' /> <b>Ports</b><hr>": anchorage,
+    "<img src='Media/Icons/ship.png' style='max-width:13px' /> <b>Ships</b><hr>": ships,
 }
 var layerControl = L.control.layers(base, nodes, {position: 'topleft'}).addTo(map);
 

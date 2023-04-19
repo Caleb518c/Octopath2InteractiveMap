@@ -135,25 +135,49 @@ var villageIcon = L.icon({
 });
 var emblemIcon = L.icon({
     iconUrl: 'Media/Icons/emblem.png', 
+    iconSize: [iconScale/3.5, iconScale/4]
+});
+var catacombIcon = L.icon({
+    iconUrl: 'Media/Icons/catacomb.png', 
+    iconSize: [iconScale/4, iconScale/4]
+});
+var anchorageIcon = L.icon({
+    iconUrl: 'Media/Icons/anchorage.png', 
+    iconSize: [iconScale/3, iconScale/3]
+});
+var cathedralIcon = L.icon({
+    iconUrl: 'Media/Icons/cathedral.png', 
+    iconSize: [iconScale/2, iconScale/2]
+});
+var shipIcon = L.icon({
+    iconUrl: 'Media/Icons/ship.png', 
+    iconSize: [iconScale/3, iconScale/3]
+});
+var mountainIcon = L.icon({
+    iconUrl: 'Media/Icons/mountain.png', 
     iconSize: [iconScale/4, iconScale/4]
 });
 }
 
 //------Hineouma Region-------
 {
-var ku = L.marker([600, 590], {icon: cityIcon})
-    .bindTooltip("<b>Hinoeuma</b><br>City of Ku.")
-    .bindPopup("<b>Hinoeuma</b><br>City of Ku.<br>More text!");
+    let tooltip = "<b>Hinoeuma</b><br>City of Ku."
+    var ku = L.marker([600, 590], {icon: cityIcon})
+        .bindTooltip(tooltip)
+        .bindPopup(tooltip + "<br><br> This is where the more detailed text will go.");
+}
 
-var sai = L.marker([855, 1166], {icon: townIcon})
-    .bindTooltip("<b>Hinoeuma</b><br>Town of Sai.")
-    .bindPopup("<b>Hinoeuma</b><br>Town of Sai.<br><br> This is were the more detailed text will go.");
+{
+    let tooltip = "<b>Hinoeuma</b><br>Town of Sai."
+    var sai = L.marker([855, 1166], {icon: townIcon})
+        .bindTooltip(tooltip)
+        .bindPopup(tooltip + "<br><br> This is where the more detailed text will go.");
+}
 
 
 
 
-
-
+{
 //---------------Rename these later once I learn the real names------------------
 var routeSouthOfKu = L.marker([420, 580], {icon: routeIcon});
 var routeSouthEastOfKu = L.marker([450, 850], {icon: routeIcon});
@@ -188,162 +212,400 @@ var forestNorthTown = L.marker([1780, 590], {icon: townIcon});
 var forestRouteToMansion = L.marker([1645, 620], {icon: routeIcon});
 var routeEastOfForestCity = L.marker([1490, 825], {icon: routeIcon});
 
-//Northern Wellgrove Trail
 {
-var northernWellgroveTrail = L.marker([1665, 880], {icon: routeIcon})
-    .bindTooltip("<b>Northern Wellgrove Trail</b><br>Danger Level: 18")
-    .bindPopup("<b>Northern Wellgrove Trail</b><br>Danger Level: 18<br><br>This is were the more detailed text will go.");
+    let tooltip = "<b>Northern Wellgrove Trail</b><br>Danger Level: 18"
+    var northernWellgroveTrail = L.marker([1665, 880], {icon: routeIcon})
+        .bindTooltip(tooltip)
+        .bindPopup(tooltip + "<br><br>This is where the more detailed text will go.");
 }
 
-//Altar of the Lady of Grace
 {
-var ladyOfGrace = L.marker([1750, 840], {icon: shrineIcon})
-    .bindTooltip("<b>Altar of the Lady of Grace</b>")
-    .bindPopup("<b>Altar of the Lady of Grace</b><br><br>This is were the more detailed text will go.");
+    let tooltip = "<b>Altar of the Lady of Grace</b>"
+    var ladyOfGrace = L.marker([1750, 840], {icon: shrineIcon})
+        .bindTooltip(tooltip)
+        .bindPopup(tooltip + "<br><br>This is where the more detailed text will go.");
 }
 
-//I don't know what the fuck this cave is called I haven't even found it yet
-var southForestCave = L.marker([1585, 1160], {icon: caveIcon});
-
-//Southern Cropdale Trail
 {
-var southernCropdaleTrail = L.marker([1700, 1160], {icon: routeIcon})
-    .bindPopup("<b>Southern Cropdale Trail</b><br>Danger Level: 11")
-    .bindTooltip("<b>Southern Cropdale Trail</b><br>Danger Level: 11<br><br>This is were the more detailed text will go.");
+    let tooltip = "<b>Starfall Spring</b><br>Danger Level: 15"
+    var starfallSpring = L.marker([1585, 1160], {icon: caveIcon})
+        .bindTooltip(tooltip)
+        .bindPopup(tooltip +
+            "<br><br>Can be reached by taking a canoe from Eastern Cropdale Trail and going down the stream."+
+            "<br><br>This is where the more detailed text will go.");
+
 }
 
-//Eastern Cropdale Trail
 {
-var easternCropdaleTrail = L.marker([1820, 1230], {icon: routeIcon})
-    .bindTooltip("<b>Eastern Cropdale Trail</b>")
-    .bindPopup("<b>Eastern Cropdale Trail</b><br>Danger Level: 11<br><br>This is were the more detailed text will go.");
+    let tooltip = "<b>Southern Cropdale Trail</b><br>Danger Level: 11"
+    var southernCropdaleTrail = L.marker([1700, 1160], {icon: routeIcon})
+        .bindTooltip(tooltip)
+        .bindPopup(tooltip + "<br><br>This is where the more detailed text will go.");
 }
 
-//Cropdale
 {
-var cropdale =  L.marker([1820, 1080], {icon: villageIcon})
-    .bindTooltip("<b>Cropdale</b>")
-    .bindPopup("<b>Cropdale</b><br><br>This is were the more detailed text will go.");
+    let tooltip = "<b>Eastern Cropdale Trail</b>"
+    var easternCropdaleTrail = L.marker([1820, 1230], {icon: routeIcon})
+        .bindTooltip(tooltip)
+        .bindPopup(tooltip + "<br><br>This is where the more detailed text will go.");
 }
 
-//Forest Path
 {
-var forestPath = L.marker([1980, 1145], {icon: routeIcon})
-    .bindTooltip("<b>Forest Path</b><br>Danger Level: 1")
-    .bindPopup("<b>Forest Path</b><br>Danger Level: 1<br><br>This is were the more detailed text will go.");
+    let tooltip = "<b>Cropdale</b>"
+    var cropdale =  L.marker([1820, 1080], {icon: villageIcon})
+        .bindTooltip(tooltip)
+        .bindPopup(tooltip + "<br><br>This is where the more detailed text will go.");
 }
 
-//Festival Grounds
 {
-var festivalGrounds = L.marker([2060, 1145], {icon: routeIcon})
-    .bindTooltip("<b>Festival Grounds</b>")
-    .bindPopup("<b>Festival Grounds</b><br><br>This is were the more detailed text will go.");
+    let tooltip = "<b>Forest Path</b><br>Danger Level: 1"
+    var forestPath = L.marker([1980, 1145], {icon: routeIcon})
+        .bindTooltip(tooltip)
+        .bindPopup(tooltip + "<br><br>This is where the more detailed text will go.");
 }
 
-//Veil of Trees
 {
-var veilOfTrees = L.marker([1980, 1020], {icon: forestIcon})
-    .bindTooltip("<b>Veil of Trees</b><br>Danger Level: 5")
-    .bindPopup("<b>Veil of Trees</b><br>Danger Level: 5<br><br>This is were the more detailed text will go.");
+    let tooltip = "<b>Festival Grounds</b>"
+    var festivalGrounds = L.marker([2060, 1145], {icon: routeIcon})
+        .bindTooltip(tooltip)
+        .bindPopup(tooltip + "<br><br>This is where the more detailed text will go.");
+}
+
+{
+    let tooltip = "<b>Veil of Trees</b><br>Danger Level: 5"
+    var veilOfTrees = L.marker([1980, 1020], {icon: forestIcon})
+        .bindTooltip(tooltip)
+        .bindPopup(tooltip + "<br><br>This is where the more detailed text will go.");
 }
     
-//Animal Trail 
 {
-var animalTrail = L.marker([1960, 1270], {icon: forestIcon})
-    .bindTooltip("<b>Animal Trail</b><br>Danger Level: 16")
-    .bindPopup("<b>Animal Trail</b><br>Danger Level: 16<br><br>This is were the more detailed text will go.");
+    let tooltip = "<b>Animal Trail</b><br>Danger Level: 16"
+    var animalTrail = L.marker([1960, 1270], {icon: forestIcon})
+        .bindTooltip(tooltip)
+        .bindPopup(tooltip + "<br><br>This is where the more detailed text will go.");
 }
 
 
 //Toto'haha
 {
-var pathToWardenbeasts = L.marker([350, 2970], {icon: routeIcon})
-    .bindTooltip("<b>Path to the Tombs of the Wardenbeasts</b>")
-    .bindPopup("Path to the Tombs of the Wardenbeasts<br>This is were the more detailed text will go.");
+    let region = "Toto'haha<br>"
+    {
+        let tooltip = region + "<b>Path to the Tombs of the Wardenbeasts</b><br>Danger Level: 1"
+        var pathToWardenbeasts = L.marker([350, 2970], {icon: routeIcon})
+            .bindTooltip(tooltip)
+            .bindPopup(tooltip + "<br><br>This is where the more detailed text will go.");
+    }
+
+    {
+        let tooltip = region + "<b>Tombs of the Wardenbeasts</b><br>Danger Level: 5"
+        var tombsOfWardenbeasts = L.marker([350, 3100], {icon: ruinsIcon})
+            .bindTooltip(tooltip)
+            .bindPopup(tooltip + "<br><br>This is where the more detailed text will go.");
+    }
+
+    {
+        let tooltip = region + "<b>Beasting village</b>"
+        var beastingVillage = L.marker([405, 2965], {icon: villageIcon})
+            .bindTooltip(tooltip)
+            .bindPopup(tooltip + "<br><br>This is where the more detailed text will go.");
+    }
+
+    {
+        let tooltip = region + "<b>North Beasting Traverse</b><br>Danger Level: 11"
+        var northBeasting = L.marker([461, 3014], {icon: routeIcon})
+            .bindTooltip(tooltip)
+            .bindPopup(tooltip + "<br><br>This is where the more detailed text will go.");
+    }
+
+    {
+        let tooltip = region + "<b>Beasting Bay: Anchorage</b><br>Danger Level: 11"
+        var beastingBay = L.marker([570, 2991], {icon: anchorageIcon})
+            .bindTooltip(tooltip)
+            .bindPopup(tooltip + "<br><br>This is where the more detailed text will go.");
+    }
+
+    {
+        let tooltip = region + "<b>Cavern of Waves</b><br>Danger Level: 48"
+        var cavernOfWaves = L.marker([636, 3034], {icon: caveIcon})
+            .bindTooltip(tooltip)
+            .bindPopup(tooltip + "<br><br>This is where the more detailed text will go.");
+    }
+
+    {
+        let tooltip = region + "<b>Western Tropu'hopu Traverse</b><br>Danger Level: 32"
+        var westernTropu = L.marker([546, 3155], {icon: routeIcon})
+            .bindTooltip(tooltip)
+            .bindPopup(tooltip + "<br><br>This is where the more detailed text will go.");
+    }
+
+    {
+        let tooltip = "<b>Hunter Guild</b>"
+        var hunterGuild = L.marker([590, 3165], {icon: emblemIcon})
+            .bindTooltip(tooltip)
+            .bindPopup(tooltip + 
+                "<br><br>Can be found to the far left from the Elderly Man in "+
+                "Western Tropu'Hopu Traverse, hidden by some trees.");
+    }
+
+    {
+        let tooltip = region + "<b>Southern Nameless Village Traverse</b><br>Danger Level: 45"
+        var southernNameless = L.marker([631, 3203], {icon: routeIcon})
+            .bindTooltip(tooltip)
+            .bindPopup(tooltip + "<br><br>This is where the more detailed text will go.");
+    }
+
+    {
+        let tooltip = region + "<b>Altar of the Huntress</b>"
+        var huntressAltar = L.marker([479, 3220], {icon: shrineIcon})
+            .bindTooltip(tooltip)
+            .bindPopup(tooltip + "<br><br>This is where the more detailed text will go.");
+    }
+
+    {
+        let tooltip = region + "<b>Tropu'hopu</b>"
+        var tropuHopu = L.marker([580, 3339], {icon: townIcon})
+            .bindTooltip(tooltip)
+            .bindPopup(tooltip + "<br><br>This is where the more detailed text will go.");
+    }
+
+    {
+        let tooltip = region + "<b>Nameless Village</b>"
+        var namelessVillage = L.marker([766, 3176], {icon: villageIcon})
+            .bindTooltip(tooltip)
+            .bindPopup(tooltip + "<br><br>This is where the more detailed text will go.");
+    }
+
+    {
+        let tooltip = region + "<b>Sinking Ruins</b><br>Danger Level: 46"
+        var sinkingRuins  = L.marker([689, 3155], {icon: ruinsIcon})
+            .bindTooltip(tooltip)
+            .bindPopup(tooltip + "<br><br>This is where the more detailed text will go.");
+    }
+
+    {
+        let tooltip = region + "<b>Wandering Wood</b><br>Danger Level: 45"
+        var wanderingWood = L.marker([840, 3206], {icon: caveIcon})
+            .bindTooltip(tooltip)
+            .bindPopup(tooltip + "<br><br>This is where the more detailed text will go.");
+    }
+
+    {
+        let tooltip = region + "<b>Summit of Strife</b><br>Danger Level: 45"
+        var summitOfStrife = L.marker([326, 2908], {icon: forestIcon})
+            .bindTooltip(tooltip)
+            .bindPopup(tooltip +
+                "<br><br>Area unlocked through Ochette story."+
+                "<br><br>This is where the more detailed text will go.");
+    }
 }
 
-{
-var tombsOfWardenbeasts = L.marker([350, 3100], {icon: ruinsIcon})
-    .bindTooltip("<b>Tombs of the Wardenbeasts</b>")
-    .bindPopup("<b>Tombs of the Wardenbeasts</b><br><br>This is were the more detailed text will go.");
-}
+// Brightlands 
 
 {
-var beastingVillage = L.marker([405, 2965], {icon: villageIcon})
-    .bindTooltip("<b>Beasting village</b>")
-    .bindPopup("<b>Beasting village</b><br><br>This is were the more detailed text will go.");
+    let region = "Brightlands<br>"
+    {
+        let tooltip = region + "<b>Lostseed Castle</b><br>Danger Level: 45"
+        var lostseedCastle = L.marker([912, 3480], {icon: ruinsIcon})
+            .bindTooltip(tooltip)
+            .bindPopup(tooltip + 
+                "<br><br>Area unlocked through Throne story."+
+                "<br><br>This is where the more detailed text will go.");
+    }
+
+    {
+        let tooltip = region + "<b>Lostseed</b>"
+        var lostseed = L.marker([950, 3576], {icon: villageIcon})
+            .bindTooltip(tooltip)
+            .bindPopup(tooltip + 
+                "<br><br>Area unlocked through Throne story."+
+                "<br><br>This is where the more detailed text will go.");
+    }
+
+    {
+        let tooltip = region + "<b>Deserted Highroad</b><br>Danger Level: 45"
+        var desertedHighroad = L.marker([975, 3722], {icon: routeIcon})
+            .bindTooltip(tooltip)
+            .bindPopup(tooltip + 
+                "<br><br>Area unlocked through Throne story."+
+                "<br><br>This is where the more detailed text will go.");
+    }
+
+    {
+        let tooltip = region + "<b>Underground Waterway</b><br>Danger Level: 2"
+        var undergroundWaterway = L.marker([1145, 3678], {icon: catacombIcon})
+            .bindTooltip(tooltip)
+            .bindPopup(tooltip + 
+                "<br><br>Area unlocked through Throne story."+
+                "<br><br>This is where the more detailed text will go.");
+    }
+
+    {
+        let tooltip = region + "<b>New Delsta</b>"
+        var newDelsta = L.marker([1303, 3678], {icon: cityIcon})
+            .bindTooltip(tooltip)
+            .bindPopup(tooltip + "<br><br>This is where the more detailed text will go.");
+    }
+
+    {
+        let tooltip = region + "<b>Diamante's Estate</b><br>Danger Level: 3"
+        var diamante = L.marker([1435, 3742], {icon: mansionIcon})
+            .bindTooltip(tooltip)
+            .bindPopup(tooltip + "<br><br>This is where the more detailed text will go.");
+    }
+
+    {
+        let tooltip = region + "<b>Theater Backstage</b><br>Danger Level: 14"
+        var theaterBackstage = L.marker([1377, 3648], {icon: mansionIcon})
+            .bindTooltip(tooltip)
+            .bindPopup(tooltip + 
+                "<br><br>Area unlocked through Agnea story."+
+                "<br><br>This is where the more detailed text will go.");
+    }
+
+    {
+        let tooltip = region + "<b>Eastern New Delsta Highroad</b><br>Danger Level: 11"
+        var eastDelsta = L.marker([1371, 3848], {icon: routeIcon})
+            .bindTooltip(tooltip)
+            .bindPopup(tooltip + "<br><br>This is where the more detailed text will go.");
+    }
+
+    {
+        let tooltip = "<b>Inventor Guild</b>"
+        var inventorGuild = L.marker([1430, 3896], {icon: emblemIcon})
+            .bindTooltip(tooltip)
+            .bindPopup(tooltip + 
+                "<br><br> In Eastern New Delsta Highroad, above the lake." +
+                "<br><br>This is where the more detailed text will go.");
+    }
+
+    {
+        let tooltip = region + "<b>Western Clockbank Highroad</b><br>Danger Level: 11"
+        var westernClockbank = L.marker([1428, 4184], {icon: routeIcon})
+            .bindTooltip(tooltip)
+            .bindPopup(tooltip + "<br><br>This is where the more detailed text will go.");
+    }
+
+    {
+        let tooltip = region + "<b>Southern Clockbank Highroad</b><br>Danger Level: 32"
+        var southernClockbank = L.marker([1388, 4324], {icon: routeIcon})
+            .bindTooltip(tooltip)
+            .bindPopup(tooltip + "<br><br>This is where the more detailed text will go.");
+    }
+
+    {
+        let tooltip = region + "<b>Altar of the Prince of Thieves</b>"
+        var thievesAltar = L.marker([1412, 4379], {icon: shrineIcon})
+            .bindTooltip(tooltip)
+            .bindPopup(tooltip + "<br><br>This is where the more detailed text will go.");
+    }
+
+    {
+        let tooltip = region + "<b>Clockbank</b>"
+        var clockbank = L.marker([1480, 4327], {icon: townIcon})
+            .bindTooltip(tooltip)
+            .bindPopup(tooltip + "<br><br>This is where the more detailed text will go.");
+    }
+
+    {
+        let tooltip = region + "<b>Old Clock Tower</b><br>Danger Level: 44"
+        var clockTower = L.marker([1543, 4423], {icon: mansionIcon})
+            .bindTooltip(tooltip)
+            .bindPopup(tooltip + "<br><br>This is where the more detailed text will go.");
+    }
+
+    {
+        let tooltip = region + "<b>The Roque Company: Factory</b><br>Danger Level: 18"
+        var roqueFactory = L.marker([1570, 4323], {icon: mansionIcon})
+            .bindTooltip(tooltip)
+            .bindPopup(tooltip + 
+                "<br><br>Area unlocked through Partitio story."+
+                "<br><br>This is where the more detailed text will go.");
+    }
+
+    {
+        let tooltip = "Thieves Guild"
+        var thievesGuild = L.marker([1508, 4308], {icon: emblemIcon})
+            .bindTooltip(tooltip)
+            .bindPopup(tooltip + "<br><br>Can be found in Clockbank: Industrial District only at night.");
+    }
+
+    {
+        let tooltip = region + "<b>New Delsta Harbor: Anchorage</b><br>Danger Level: 11"
+        var delstaHarbor = L.marker([1750, 3403], {icon: anchorageIcon})
+            .bindTooltip(tooltip)
+            .bindPopup(tooltip + "<br><br>This is where the more detailed text will go.");
+    }
+
+    {
+        let tooltip = region + "<b>New Delsta Flats</b><br>Danger Level: 11"
+        var delstaFlats = L.marker([1805, 3743], {icon: routeIcon})
+            .bindTooltip(tooltip)
+            .bindPopup(tooltip + "<br><br>This is where the more detailed text will go.");
+    }
+
+    {
+        let tooltip = region + "<b>Abandoned Waterway</b><br>Danger Level: 20"
+        var abandonedWaterway = L.marker([1895, 3639], {icon: catacombIcon})
+            .bindTooltip(tooltip)
+            .bindPopup(tooltip + "<br><br>This is where the more detailed text will go.");
+    }
+
+    {
+        let tooltip = region + "<b>Abandoned Village</b>"
+        var abandonedVillage = L.marker([1797, 3860], {icon: villageIcon})
+            .bindTooltip(tooltip)
+            .bindPopup(tooltip + "<br><br>This is where the more detailed text will go.");
+    }
+
+    {
+        let tooltip = region + "<b>Path to Mount Liphia</b><br>Danger Level: 30"
+        var pathLiphia = L.marker([1840, 3935], {icon: routeIcon})
+            .bindTooltip(tooltip)
+            .bindPopup(tooltip + "<br><br>This is where the more detailed text will go.");
+    }
+
+    {
+        let tooltip = region + "<b>Mount Liphia</b><br>Danger Level: 31"
+        var mountLiphia = L.marker([1876, 4015], {icon: caveIcon})
+            .bindTooltip(tooltip)
+            .bindPopup(tooltip + "<br><br>This is where the more detailed text will go.");
+    }
 }
 
+// Crestlands
 {
-var northBeasting = L.marker([461, 3014], {icon: routeIcon})
-    .bindTooltip("<b>North Beasting Traverse</b><br>Danger Level: 11")
-    .bindPopup("<b>North Beasting Traverse</b><br>Danger Level: 11<br><br>This is were the more detailed text will go.");
+    let region = "Crestlands<br>"
+    {
+        let tooltip = region + "<b>Flamechurch: Cathedral</b>"
+        var cathedral = L.marker([1900, 4120], {icon: cathedralIcon})
+            .bindTooltip(tooltip)
+            .bindPopup(tooltip + "<br><br>This is where the more detailed text will go.");
+    }
+
 }
 
+// Winterlands
 {
-var beastingBay = L.marker([570, 2991], {icon: routeIcon})
-    .bindTooltip("<b>Beasting Bay: Anchorage</b><br>Danger Level: 11")
-    .bindPopup("<b>Beasting Bay: Anchorage</b><br>Danger Level: 11<br><br>This is were the more detailed text will go.");
+    let region = "Winterlands<br>"
+    {
+        let tooltip = region + "<b>Sacred Peak Altahe</b><br>Danger Level: 37"
+        var sacredPeak = L.marker([2465, 4587], {icon: mountainIcon})
+            .bindTooltip(tooltip)
+            .bindPopup(tooltip + "<br><br>This is where the more detailed text will go.");
+    }
+
 }
 
+// The Sundering Sea
 {
-var cavernOfWaves = L.marker([636, 3034], {icon: caveIcon})
-    .bindTooltip("<b>Cavern of Waves</b><br>Danger Level: 48")
-    .bindPopup("<b>Cavern of Waves</b><br>Danger Level: 48<br><br>This is were the more detailed text will go.");
-}
+    let region = "The Sundering Sea<br>"
+    {
+        let tooltip = region + "<b>Shipwreck of the Empress</b><br>Danger Level: 48"
+        var shipWreck = L.marker([1932, 2362], {icon: shipIcon})
+            .bindTooltip(tooltip)
+            .bindPopup(tooltip + "<br><br>This is where the more detailed text will go.");
+    }
 
-{
-var westernTropu = L.marker([546, 3155], {icon: routeIcon})
-    .bindTooltip("<b>Western Tropu'hopu Traverse</b><br>Danger Level: 18")
-    .bindPopup("<b>Western Tropu'hopu Traverse</b><br>Danger Level: 18<br><br>This is were the more detailed text will go.");
-}
-
-{
-var hunterGuild = L.marker([590, 3165], {icon: emblemIcon})
-    .bindTooltip("<b>Hunter Guild</b>")
-    .bindPopup("<b>Hunter Guild</b><br><br>This is were the more detailed text will go.");
-}
-
-{
-var southernNameless = L.marker([631, 3203], {icon: routeIcon})
-    .bindTooltip("<b>Southern Nameless Village Traverse</b><br>Danger Level: 45")
-    .bindPopup("<b>Southern Nameless Village Traverse</b><br>Danger Level: 45<br><br>This is were the more detailed text will go.");
-}
-
-{
-var huntressAltar = L.marker([479, 3220], {icon: shrineIcon})
-    .bindTooltip("<b>Altar of the Huntress</b>")
-    .bindPopup("<b>Altar of the Huntress</b><br><br>This is were the more detailed text will go.");
-}
-
-{
-var tropuHopu = L.marker([580, 3339], {icon: townIcon})
-    .bindTooltip("<b>Tropu'hopu</b>")
-    .bindPopup("<b>Tropu'hopu</b><br><br>This is were the more detailed text will go.");
-}
-
-{
-var namelessVillage = L.marker([766, 3176], {icon: villageIcon})
-    .bindTooltip("<b>Nameless Village</b>")
-    .bindPopup("<b>Nameless Village</b><br><br>This is were the more detailed text will go.");
-}
-
-{
-var sinkingRuins  = L.marker([689, 3155], {icon: ruinsIcon})
-    .bindTooltip("<b>Sinking Ruins</b><br>Danger Level: 46")
-    .bindPopup("<b>Sinking Ruins</b><br>Danger Level: 46<br><br>This is were the more detailed text will go.");
-}
-
-{
-var wanderingWood = L.marker([840, 3206], {icon: caveIcon})
-    .bindTooltip("<b>Wandering Wood</b><br>Danger Level: 45")
-    .bindPopup("<b>Wandering Wood</b><br>Danger Level: 45<br><br>This is were the more detailed text will go.");
-}
-
-{
-var summitOfStrife = L.marker([326, 2908], {icon: forestIcon})
-    .bindTooltip("<b>Summit of Strife</b><br>Danger Level: 45")
-    .bindPopup("<b>Summit of Strife</b><br>Danger Level: 45<br><br>This is were the more detailed text will go.");
 }
 
 
@@ -352,13 +614,13 @@ var summitOfStrife = L.marker([326, 2908], {icon: forestIcon})
 
 //Adds all layers to map
 {
-    var cities = L.layerGroup([ku, forestCity]);
+    var cities = L.layerGroup([ku, forestCity, newDelsta]);
     cities.addTo(map);
     
-    var towns = L.layerGroup([sai, forestNorthTown, ryu, tropuHopu]);
+    var towns = L.layerGroup([sai, forestNorthTown, ryu, tropuHopu, clockbank]);
     towns.addTo(map);
 
-    var villages = L.layerGroup([cropdale, beastingVillage, namelessVillage]);
+    var villages = L.layerGroup([cropdale, beastingVillage, namelessVillage, lostseed, abandonedVillage]);
     villages.addTo(map);
     
     var routes = L.layerGroup([routeEastofForest, routeFarWestofSai, 
@@ -367,44 +629,66 @@ var summitOfStrife = L.marker([326, 2908], {icon: forestIcon})
         routeWestofSai, forestRouteToMansion, routeEastOfForestCity,
         northernWellgroveTrail, southernCropdaleTrail, easternCropdaleTrail,
         forestPath, festivalGrounds, northernRyuSands,
-        pathToWardenbeasts, northBeasting, beastingBay, westernTropu, southernNameless]);
+        pathToWardenbeasts, northBeasting, westernTropu, southernNameless,
+        eastDelsta, westernClockbank, southernClockbank,
+        delstaFlats, pathLiphia]);
     routes.addTo(map);
     
     var caves = L.layerGroup([caveEastOfSai, caveNorthOfKu, caveNorthOfSai,
-        southForestCave, cavernOfWaves, wanderingWood]);
+        starfallSpring, cavernOfWaves, wanderingWood, mountLiphia]);
     caves.addTo(map);
     
     var mansions = L.layerGroup([mansionNorthOfKu, mansionNorthOfShrine, northForestMansion, 
-        southForestMansion]);
+        southForestMansion, diamante, theaterBackstage, clockTower, roqueFactory]);
     mansions.addTo(map);
     
-    var shrines = L.layerGroup([desertShrine, ladyOfGrace, huntressAltar]);
+    var shrines = L.layerGroup([desertShrine, ladyOfGrace, huntressAltar, thievesAltar]);
     shrines.addTo(map);
     
-    var ruins = L.layerGroup([ruinsEastOfKu, tombsOfWardenbeasts, sinkingRuins]);
+    var ruins = L.layerGroup([ruinsEastOfKu, tombsOfWardenbeasts, sinkingRuins, lostseedCastle]);
     ruins.addTo(map);
     
     var forests = L.layerGroup([southForest, northForst, veilOfTrees, animalTrail,
         summitOfStrife]);
     forests.addTo(map); 
 
-    var guilds = L.layerGroup([hunterGuild]);
+    var guilds = L.layerGroup([hunterGuild, inventorGuild, thievesGuild]);
     guilds.addTo(map); 
+
+    var catacombs = L.layerGroup([undergroundWaterway, abandonedWaterway]);
+    catacombs.addTo(map); 
+
+    var cathedrals = L.layerGroup([cathedral]);
+    cathedrals.addTo(map); 
+
+    var mountains = L.layerGroup([sacredPeak]);
+    mountains.addTo(map); 
+
+    var anchorage = L.layerGroup([delstaHarbor, beastingBay]);
+    anchorage.addTo(map); 
+
+    var ships = L.layerGroup([shipWreck]);
+    ships.addTo(map); 
 }
 
 // added layercontrol to replace sidenav choices
 base ={}
 nodes = {
-    "<img src='Media/Icons/city pls look good.png' style='max-width:25px' /> <b>Cities</b><hr>": cities,
-    "<img src='Media/Icons/town.png' style='max-width:25px' /> <b>Towns</b><hr>": towns,
-    "<img src='Media/Icons/village.png' style='max-width:25px' /> <b>Villages</b><hr>": villages,
-    "<img src='Media/Icons/zone.png' style='max-width:25px' /> <b>Routes</b><hr>": routes,
-    "<img src='Media/Icons/cave.png' style='max-width:25px' /> <b>Caves</b><hr>": caves,
-    "<img src='Media/Icons/mansion.png' style='max-width:25px' /> <b>Mansions</b><hr>": mansions,
-    "<img src='Media/Icons/shrine.png' style='max-width:25px' /> <b>Shrines</b><hr>": shrines,
-    "<img src='Media/Icons/ruins.png' style='max-width:25px' /> <b>Ruins</b><hr>": ruins,
-    "<img src='Media/Icons/forest.png' style='max-width:25px' /> <b>Forests</b><hr>": forests,
-    "<img src='Media/Icons/emblem.png' style='max-width:25px' /> <b>Guilds</b><hr>": guilds,
+    "<img src='Media/Icons/city pls look good.png' style='max-width:13px' /> <b>Cities</b><hr>": cities,
+    "<img src='Media/Icons/town.png' style='max-width:13px' /> <b>Towns</b><hr>": towns,
+    "<img src='Media/Icons/village.png' style='max-width:13px' /> <b>Villages</b><hr>": villages,
+    "<img src='Media/Icons/zone.png' style='max-width:13px' /> <b>Routes</b><hr>": routes,
+    "<img src='Media/Icons/cave.png' style='max-width:13px' /> <b>Caves</b><hr>": caves,
+    "<img src='Media/Icons/mansion.png' style='max-width:13px' /> <b>Mansions</b><hr>": mansions,
+    "<img src='Media/Icons/shrine.png' style='max-width:13px' /> <b>Shrines</b><hr>": shrines,
+    "<img src='Media/Icons/ruins.png' style='max-width:13px' /> <b>Ruins</b><hr>": ruins,
+    "<img src='Media/Icons/forest.png' style='max-width:13px' /> <b>Forests</b><hr>": forests,
+    "<img src='Media/Icons/emblem.png' style='max-width:13px' /> <b>Guilds</b><hr>": guilds,
+    "<img src='Media/Icons/catacomb.png' style='max-width:13px' /> <b>Catacombs</b><hr>": catacombs,
+    "<img src='Media/Icons/cathedral.png' style='max-width:13px' /> <b>Cathedrals</b><hr>": cathedrals,
+    "<img src='Media/Icons/mountain.png' style='max-width:13px' /> <b>Mountains</b><hr>": mountains,
+    "<img src='Media/Icons/anchorage.png' style='max-width:13px' /> <b>Ports</b><hr>": anchorage,
+    "<img src='Media/Icons/ship.png' style='max-width:13px' /> <b>Ships</b><hr>": ships,
 }
 var layerControl = L.control.layers(base, nodes, {position: 'topleft'}).addTo(map);
 

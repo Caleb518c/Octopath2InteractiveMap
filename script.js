@@ -21,11 +21,7 @@
             document.getElementById("notesText").style.display = "flex";
     })
 
-    
-
-
-    
-
+        
 
     //Creates the map object in leaflet, then sets the image and bound for it
     var bounds = [[0,0], [3168, 5632]];
@@ -70,8 +66,6 @@
             openNav()
         }
     });
-
-
 
     window.onresize = function(){
         
@@ -200,17 +194,75 @@ var northernRyuSands = L.marker([1330, 1518], {icon: routeIcon});
 }
 
 //------Leaflands-------
+{
+    let tooltip = "<b>Mother's Garden: Orphanage</b>"
+    var mothersGardenOrphanage = L.marker([1240, 550], {icon: routeIcon})
+        .bindTooltip(tooltip)
+        .bindPopup(tooltip + "<br><br>This is where the more detailed text will go.");
+}
 
-var routeOnBorder = L.marker([1240, 550], {icon: routeIcon});
-var southForest = L.marker([1330, 525], {icon: forestIcon});
-var routeEastofForest = L.marker([1350, 630], {icon: routeIcon});
-var forestCity = L.marker([1485, 650], {icon: cityIcon});
-var southForestMansion = L.marker([1640, 545], {icon: mansionIcon});
-var northForestMansion = L.marker([1867, 617], {icon: mansionIcon});
-var northForst = L.marker([1505, 500], {icon: forestIcon});
-var forestNorthTown = L.marker([1780, 590], {icon: townIcon});
-var forestRouteToMansion = L.marker([1645, 620], {icon: routeIcon});
-var routeEastOfForestCity = L.marker([1490, 825], {icon: routeIcon});
+{
+    let tooltip = "<b>Mother's Garden</b><br> Danger Level: 31"
+    var mothersGarden = L.marker([1330, 525], {icon: forestIcon})
+        .bindTooltip(tooltip)
+        .bindPopup(tooltip + "<br><br>This is where the more detailed text will go.");
+}
+
+{
+    let tooltip = "<b>Road to Mother's Garden</b><br> Danger Level: 30"
+    var roadToMothersGarden = L.marker([1350, 630], {icon: routeIcon})
+        .bindTooltip(tooltip)
+        .bindPopup(tooltip + "<br><br>This is where the more detailed text will go.");
+}
+
+{
+    let tooltip = "Leaflands<br><b>Wellgrove</b>"
+    var wellgrove = L.marker([1485, 650], {icon: cityIcon})
+        .bindTooltip(tooltip)
+        .bindPopup(tooltip + "<br><br>This is where the more detailed text will go.");
+}
+
+{
+    let tooltip = "<b>Don't have a name for this yet</b>"
+    var southForestMansion = L.marker([1640, 545], {icon: mansionIcon})
+        .bindTooltip(tooltip)
+        .bindPopup(tooltip + "<br><br>This is where the more detailed text will go.");
+}
+
+{
+    let tooltip = "<b>Don't have a name for this yet</b>"
+    var northForestMansion = L.marker([1867, 617], {icon: mansionIcon})
+        .bindTooltip(tooltip)
+        .bindPopup(tooltip + "<br><br>This is where the more detailed text will go.");
+}
+
+{
+    let tooltip = "<b>Secret Forest</b><br> Danger Level: 26"
+    var secretForest = L.marker([1505, 500], {icon: forestIcon})
+        .bindTooltip(tooltip)
+        .bindPopup(tooltip + "<br><br>This is where the more detailed text will go.");
+}
+
+{
+    let tooltip = "Leaflands<br><b>Timberain</b>"
+    var timberain = L.marker([1780, 590], {icon: townIcon})
+        .bindTooltip(tooltip)
+        .bindPopup(tooltip + "<br><br>This is where the more detailed text will go.");
+}
+
+{
+    let tooltip = "<b>Southern Timberain Trail</b><br>Danger Level: 45"
+    var southernTimberainTrail = L.marker([1645, 620], {icon: routeIcon})
+        .bindTooltip(tooltip)
+        .bindPopup(tooltip + "<br><br>This is where the more detailed text will go.");
+}
+
+{
+    let tooltip = "<b>Eastern Wellgrove Trail</b><br>Danger Level: 28"
+    var easternWellgroveTrail = L.marker([1490, 825], {icon: routeIcon})
+        .bindTooltip(tooltip)
+        .bindPopup(tooltip + "<br><br>This is where the more detailed text will go.");
+}
 
 {
     let tooltip = "<b>Northern Wellgrove Trail</b><br>Danger Level: 18"
@@ -614,19 +666,19 @@ var routeEastOfForestCity = L.marker([1490, 825], {icon: routeIcon});
 
 //Adds all layers to map
 {
-    var cities = L.layerGroup([ku, forestCity, newDelsta]);
+    var cities = L.layerGroup([ku, wellgrove, newDelsta]);
     cities.addTo(map);
     
-    var towns = L.layerGroup([sai, forestNorthTown, ryu, tropuHopu, clockbank]);
+    var towns = L.layerGroup([sai, timberain, ryu, tropuHopu, clockbank]);
     towns.addTo(map);
 
     var villages = L.layerGroup([cropdale, beastingVillage, namelessVillage, lostseed, abandonedVillage]);
     villages.addTo(map);
     
-    var routes = L.layerGroup([routeEastofForest, routeFarWestofSai, 
-        routeNorthOfDesertShrine, routeNorthWestofSai, routeOnBorder,
+    var routes = L.layerGroup([roadToMothersGarden, routeFarWestofSai, 
+        routeNorthOfDesertShrine, routeNorthWestofSai, mothersGardenOrphanage,
         routeSouthEastOfKu, routeSouthOfKu, routeSouthofSai, 
-        routeWestofSai, forestRouteToMansion, routeEastOfForestCity,
+        routeWestofSai, southernTimberainTrail, easternWellgroveTrail,
         northernWellgroveTrail, southernCropdaleTrail, easternCropdaleTrail,
         forestPath, festivalGrounds, northernRyuSands,
         pathToWardenbeasts, northBeasting, westernTropu, southernNameless,
@@ -648,7 +700,7 @@ var routeEastOfForestCity = L.marker([1490, 825], {icon: routeIcon});
     var ruins = L.layerGroup([ruinsEastOfKu, tombsOfWardenbeasts, sinkingRuins, lostseedCastle]);
     ruins.addTo(map);
     
-    var forests = L.layerGroup([southForest, northForst, veilOfTrees, animalTrail,
+    var forests = L.layerGroup([mothersGarden, secretForest, veilOfTrees, animalTrail,
         summitOfStrife]);
     forests.addTo(map); 
 

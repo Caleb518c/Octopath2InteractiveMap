@@ -1,9 +1,6 @@
-
-
-    //Hides all expandable text on load
+//Hides all expandable text on load
     document.querySelector("#aboutText").style.display = "none";
     document.querySelector("#notesText").style.display = "none";
-
 
     //Toggles about section text
     document.getElementById("about").addEventListener("click", function(){
@@ -20,8 +17,6 @@
         else
             document.getElementById("notesText").style.display = "flex";
     })
-
-        
 
     //Creates the map object in leaflet, then sets the image and bound for it
     var bounds = [[0,0], [3168, 5632]];
@@ -66,6 +61,7 @@
             openNav()
         }
     });
+
 
     window.onresize = function(){
         
